@@ -1,0 +1,12 @@
+.text-white {
+  padding-left: 60px;
+}
+
+.custom {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  padding-right: 60px;
+  border: grey;
+  padding-top: 10px;
+}
