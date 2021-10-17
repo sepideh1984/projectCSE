@@ -1,0 +1,68 @@
+<app-second-header></app-second-header>
+
+<div class="container">
+  <a
+    ><img
+      src="	https://cse-prosar.de/wp-content/uploads/2019/07/Logo_CSE_ProSaR.jpg"
+      width="350"
+      height="100"
+  /></a>
+  <div class="custom container">
+    <h1 id="signin">Sign In</h1>
+    <p *ngIf="!userData.valid && userData.touched">
+      Invalid username or password
+    </p>
+
+    <form #f="ngForm" (ngSubmit)="Onsubmit()" novalidate>
+      <div class="form-group title">
+        Please log in with the user data you specified during registration.
+      </div>
+
+      <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input
+            type="email"
+            class="form-control"
+            id="emailId"
+            ngModel
+            name="email"
+            required
+            email
+            #email="ngModel"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="Password">Password*</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            ngModel
+            name="secret"
+            #password="ngModel"
+            required
+          />
+        </div>
+      </div>
+      <div class="btn-lg btn-block">
+        <button
+          type="submit"
+          class="btn btn-primary mainbutton"
+          [disabled]="!f.valid"
+        >
+          login
+        </button>
+      </div>
+    </form>
+  </div>
+  <hr />
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+      <h3>Your Data</h3>
+      <p>Email: {{ user.email }}</p>
+      <p>Password: {{ user.password }}</p>
+    </div>
+  </div>
+</div>
